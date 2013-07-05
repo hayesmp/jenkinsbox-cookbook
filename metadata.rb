@@ -16,6 +16,8 @@ supports 'ubuntu'
 supports 'debian'
 
 depends 'appbox'
+depends 'mysql'
+depends 'nodejs'
 depends 'rbenv'
 depends 'nginx'
 depends 'unicorn', ">= 1.2.2"
