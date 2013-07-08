@@ -4,7 +4,7 @@
 #
 
 include_recipe "appbox"
-include_recipe "msql"
+include_recipe "mysql"
 include_recipe "nodejs"
 include_recipe "rackbox::ruby"
 include_recipe "rackbox::nginx"
