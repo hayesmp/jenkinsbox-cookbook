@@ -17,6 +17,8 @@ supports 'debian'
 
 depends 'appbox'
 depends 'mysql'
+depends 'sqlite'
+depends 'postgresql91'
 depends 'nodejs'
 depends 'rbenv'
 depends 'nginx'

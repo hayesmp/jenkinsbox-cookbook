@@ -5,6 +5,8 @@
 
 include_recipe "appbox"
 include_recipe "mysql"
+include_recipe "sqlite"
+include_recipe "postgresql91"
 include_recipe "nodejs"
 include_recipe "rackbox::ruby"
 include_recipe "rackbox::nginx"
