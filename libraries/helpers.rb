@@ -85,6 +85,14 @@ module Rackbox
         notifies :reload, "service[nginx]"
       end
 
+      file "/etc/nginx/sites-enabled/000-default" do
+        owner "root"
+        group "root"
+        #mode "0755"
+        action :delete
+        notifies :reload, "service[nginx]"
+      end
+
       # TODO issue: nginx not reload enabled site
       nginx_site app["appname"] do
         notifies :reload, "service[nginx]"
