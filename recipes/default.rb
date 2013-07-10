@@ -2,6 +2,7 @@
 # Cookbook Name:: rackbox
 # Recipe:: default
 #
+package "libsqlite3-dev"
 
 include_recipe "appbox"
 include_recipe "mysql"
