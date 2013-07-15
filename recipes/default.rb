@@ -8,7 +8,7 @@ include_recipe "appbox"
 include_recipe "mysql"
 include_recipe "sqlite"
 include_recipe "postgresql"
-include_recipe "nodejs"
+#include_recipe "nodejs" #to cut down on compile time
 include_recipe "rackbox::ruby"
 include_recipe "rackbox::nginx"
 include_recipe "runit"
