@@ -16,7 +16,7 @@ supports 'ubuntu'
 supports 'debian'
 
 depends 'appbox'
-#depends 'jenkins'
+depends 'jenkins'
 #depends 'mysql'
 #depends 'sqlite'
 #depends 'postgresql'
