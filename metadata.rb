@@ -8,7 +8,7 @@ version          "0.1.2"
 
 recipe "rackbox", "run all recipes."
 recipe "rackbox::ruby", "setup a ruby version manager `rbenv`."
-#recipe "rackbox::nginx", "setup `nginx` as front-end server."
+recipe "rackbox::jenkins", "setup jenkins with a new job"
 #recipe "rackbox::unicorn", "setup `unicorn` apps, if any."
 #recipe "rackbox::passenger", "setup `passenger` apps, if any."
 
@@ -16,7 +16,7 @@ supports 'ubuntu'
 supports 'debian'
 
 depends 'appbox'
-depends 'jenkins'
+#depends 'jenkins'
 #depends 'mysql'
 #depends 'sqlite'
 #depends 'postgresql'
