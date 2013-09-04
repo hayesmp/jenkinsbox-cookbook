@@ -3,6 +3,8 @@
 # Recipe:: default
 #
 package "libsqlite3-dev"
+package "libpq-dev"
+package "postgresql"
 
 include_recipe "appbox"
 include_recipe "mysql"
