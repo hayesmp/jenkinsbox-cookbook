@@ -2,13 +2,20 @@
 # Cookbook Name:: rackbox
 # Recipe:: jenkins
 #
-# Install and setup Ruby environment
+# Install and setup Jenkins environment
 #
 
 include_recipe "jenkins"
-include_recipe "jenkins::jenkins_cli"
 
-::Chef::Recipe.send(:include, Rackbox::Helpers)
+def install_github_jenkins_plugin
+  execute "Installing github jenkins plug-in" do
+    jenkins_cli "install-plugin github"
+  end
+  execute "Restarting Jenkins" do
+    jenkins_cli "safe-restart"
+  end
+end
+
 install_github_jenkins_plugin
 
 #node["rackbox"]["jenkins"]["git_repo"]
