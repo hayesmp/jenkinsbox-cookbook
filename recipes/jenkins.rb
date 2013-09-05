@@ -7,6 +7,7 @@
 
 include_recipe "jenkins"
 
+::Chef::Recipe.send(:include, Rackbox::Helpers)
 install_github_jenkins_plugin
 
 #node["rackbox"]["jenkins"]["git_repo"]
