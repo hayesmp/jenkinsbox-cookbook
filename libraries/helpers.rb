@@ -130,6 +130,15 @@ module Rackbox
       )
       config.merge(app_config || {})
     end
+
+    def install_github_jenkins_plugin
+      execute "Installing github jenkins plug-in" do
+        jenkins_cli "install-plugin github"
+      end
+      execute "Restarting Jenkins" do
+        jenkins_cli "safe-restart"
+      end
+    end
   end
 
 end

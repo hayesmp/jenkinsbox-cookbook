@@ -7,8 +7,16 @@
 
 include_recipe "jenkins"
 
+install_github_jenkins_plugin
+
+#node["rackbox"]["jenkins"]["git_repo"]
+#node["rackbox"]["jenkins"]["command"]
+#node["rackbox"]["jenkins"]["job"]
+
+
+=begin
 git_branch = 'master'
-job_name = "sigar-#{node[:os]}-#{node[:kernel][:machine]}"
+job_name = node["rackbox"]["jenkins"]["job"]
 
 job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
 
@@ -23,3 +31,4 @@ template job_config do
   notifies :update, resources(:jenkins_job => job_name), :immediately
   notifies :build, resources(:jenkins_job => job_name), :immediately
 end
+=end
