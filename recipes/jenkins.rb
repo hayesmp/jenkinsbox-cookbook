@@ -6,6 +6,7 @@
 #
 
 include_recipe "jenkins"
+include_recipe "jenkins::jenkins_cli"
 
 ::Chef::Recipe.send(:include, Rackbox::Helpers)
 install_github_jenkins_plugin
