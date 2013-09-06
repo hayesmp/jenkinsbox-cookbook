@@ -8,12 +8,8 @@
 include_recipe "jenkins"
 
 def install_github_jenkins_plugin
-  execute "Installing github jenkins plug-in" do
-    jenkins_cli "install-plugin github"
-  end
-  execute "Restarting Jenkins" do
-    jenkins_cli "safe-restart"
-  end
+  jenkins_cli "install-plugin github"
+  jenkins_cli "safe-restart"
 end
 
 install_github_jenkins_plugin
