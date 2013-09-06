@@ -21,7 +21,7 @@ depends 'jenkins'
 #depends 'sqlite'
 #depends 'postgresql'
 #depends 'nodejs' #to cut down on compile time
-depends 'rbenv'
+#depends 'rbenv'
 #depends 'nginx'
 #depends 'unicorn', ">= 1.2.2"
 #depends 'runit', '>= 1.1.2'
