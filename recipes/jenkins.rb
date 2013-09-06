@@ -7,12 +7,12 @@
 include_recipe "apt"
 include_recipe "jenkins"
 
-`wget -O default.js http://updates.jenkins-ci.org/update-center.json`
-`sed '1d;$d' default.js > default.json`
-`mkdir /var/lib/jenkins/updates`
-`mv default.json /var/lib/jenkins/updates/`
-`chown -R jenkins:nogroup /var/lib/jenkins/updates`
-`service jenkins restart`
+#`wget -O default.js http://updates.jenkins-ci.org/update-center.json`
+#`sed '1d;$d' default.js > default.json`
+#`mkdir /var/lib/jenkins/updates`
+#`mv default.json /var/lib/jenkins/updates/`
+#`chown -R jenkins:nogroup /var/lib/jenkins/updates`
+#`service jenkins restart`
 
 %w{ git github }.each do |plugin|
   jenkins_cli "install-plugin #{plugin}"
