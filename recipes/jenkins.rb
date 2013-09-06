@@ -12,12 +12,15 @@ include_recipe "jenkins"
 `mkdir /var/lib/jenkins/updates`
 `mv default.json /var/lib/jenkins/updates/`
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
-`service jenkins restart`
 
 %w{ git github }.each do |plugin|
-  jenkins_cli "install-plugin #{plugin}"
-  jenkins_cli "safe-restart"
+  `java -jar /home/jenkins/jenkins-cli.jar -s http://192.237.186.174:8080 install-plugin #{plugin}`
+  #jenkins_cli "install-plugin #{plugin}"
+  #jenkins_cli "safe-restart"
 end
+
+`service jenkins restart`
+
 
 
 #node["rackbox"]["jenkins"]["git_repo"]
