@@ -7,6 +7,8 @@
 #include_recipe "apt"
 include_recipe "jenkins"
 
+ip_address = node["rackbox"]["jenkins"]["ip_address"]
+
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
 `sed '1d;$d' default.js > default.json`
 `mkdir /var/lib/jenkins/updates`
@@ -14,7 +16,7 @@ include_recipe "jenkins"
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
 
 %w{ git github }.each do |plugin|
-  `java -jar /home/jenkins/jenkins-cli.jar -s http://192.237.186.174:8080 install-plugin #{plugin}`
+  `java -jar /home/jenkins/jenkins-cli.jar -s http://#{ip_address}:8080 install-plugin #{plugin}`
   #jenkins_cli "install-plugin #{plugin}"
   #jenkins_cli "safe-restart"
 end
@@ -26,6 +28,7 @@ end
 #node["rackbox"]["jenkins"]["git_repo"]
 #node["rackbox"]["jenkins"]["command"]
 #node["rackbox"]["jenkins"]["job"]
+#node["rackbox"]["jenkins"]["ip_address"]
 
 
 #git_branch = 'master'
