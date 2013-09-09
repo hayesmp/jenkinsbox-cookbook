@@ -6,7 +6,7 @@
 #
 #include_recipe "apt"
 include_recipe "java"
-include_recipe "jenkins::default"
+include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
