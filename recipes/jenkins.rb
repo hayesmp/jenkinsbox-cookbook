@@ -20,12 +20,13 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 jenkins_cli "safe-restart"
 
 %w{ git github }.each do |plugin|
-  `java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
-  #jenkins_cli "install-plugin #{plugin}"
+  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
+  jenkins_cli "install-plugin #{plugin}"
   #jenkins_cli "safe-restart"
 end
 
-`service jenkins restart`
+#`service jenkins restart`
+jenkins_cli "safe-restart"
 
 
 
