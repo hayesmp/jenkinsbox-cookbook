@@ -7,6 +7,7 @@
 #include_recipe "apt"
 include_recipe "java"
 include_recipe "jenkins"
+#include_recipe "jenkins::jenkins_cli"
 
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 
@@ -15,6 +16,8 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 `mkdir /var/lib/jenkins/updates`
 `mv default.json /var/lib/jenkins/updates/`
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
+
+jenkins_cli "safe-restart"
 
 %w{ git github }.each do |plugin|
   `java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
