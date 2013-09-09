@@ -5,6 +5,7 @@
 # Install and setup Jenkins environment
 #
 #include_recipe "apt"
+include_recipe "java"
 include_recipe "jenkins"
 
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
@@ -16,7 +17,7 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
 
 %w{ git github }.each do |plugin|
-  `java -jar /home/jenkins/jenkins-cli.jar -s http://#{ip_address}:8080 install-plugin #{plugin}`
+  `java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
   #jenkins_cli "install-plugin #{plugin}"
   #jenkins_cli "safe-restart"
 end

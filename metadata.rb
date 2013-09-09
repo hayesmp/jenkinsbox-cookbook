@@ -9,19 +9,10 @@ version          "0.1.2"
 recipe "rackbox", "run all recipes."
 recipe "rackbox::ruby", "setup a ruby version manager `rbenv`."
 recipe "rackbox::jenkins", "setup jenkins with a new job"
-#recipe "rackbox::unicorn", "setup `unicorn` apps, if any."
-#recipe "rackbox::passenger", "setup `passenger` apps, if any."
 
 supports 'ubuntu'
 supports 'debian'
 
 depends 'appbox'
+depends 'java'
 depends 'jenkins'
-#depends 'mysql'
-#depends 'sqlite'
-#depends 'postgresql'
-#depends 'nodejs' #to cut down on compile time
-#depends 'rbenv'
-#depends 'nginx'
-#depends 'unicorn', ">= 1.2.2"
-#depends 'runit', '>= 1.1.2'
