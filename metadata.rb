@@ -14,7 +14,5 @@ supports 'ubuntu'
 supports 'debian'
 
 depends 'appbox'
-depends 'apt'
 depends 'java'
 depends 'jenkins'
-depends 'jenkins::server'

@@ -4,9 +4,8 @@
 #
 # Install and setup Jenkins environment
 #
-include_recipe "apt"
+#include_recipe "apt"
 include_recipe "java"
-include_recioe "jenkins"
 include_recipe "jenkins::server"
 #include_recipe "jenkins::jenkins_cli"
 
