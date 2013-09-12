@@ -39,16 +39,16 @@ jenkins_cli "-s http://0.0.0.0:8080 safe-restart"
 git_branch = 'master'
 job_name = node["rackbox"]["jenkins"]["job"]
 
-job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
-
-jenkins_job job_name do
-  action :nothing
-  config job_config
-end
-
-template job_config do
-  source "#{job_name}-config.xml"
-  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
-  notifies :update, resources(:jenkins_job => job_name), :immediately
-  notifies :build, resources(:jenkins_job => job_name), :immediately
-end
+#job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
+#
+#jenkins_job job_name do
+#  action :nothing
+#  config job_config
+#end
+#
+#template job_config do
+#  source "#{job_name}-config.xml"
+#  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
+#  notifies :update, resources(:jenkins_job => job_name), :immediately
+#  notifies :build, resources(:jenkins_job => job_name), :immediately
+#end
