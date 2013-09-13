@@ -9,6 +9,8 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
+ENV['HOSTNAME'] = "0.0.0.0"
+
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
@@ -17,17 +19,17 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 `mv default.json /var/lib/jenkins/updates/`
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
 
-jenkins_cli "-s http://0.0.0.0:8080 safe-restart"
+jenkins_cli "safe-restart"
 #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
 
 %w{ git github }.each do |plugin|
   #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
-  jenkins_cli "-s http://0.0.0.0:8080 install-plugin #{plugin}"
+  jenkins_cli "install-plugin #{plugin}"
   #jenkins_cli "safe-restart"
 end
 
 #`service jenkins restart`
-jenkins_cli "-s http://0.0.0.0:8080 safe-restart"
+jenkins_cli "safe-restart"
 #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
 
 
