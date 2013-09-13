@@ -9,8 +9,8 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
-host = ["rackbox"]['jenkins']['server']['host']
-puts host
+#host = ["rackbox"]['jenkins']['server']['host']
+#puts host
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 
 `hostname 0.0.0.0`
