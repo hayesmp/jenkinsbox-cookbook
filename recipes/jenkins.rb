@@ -9,7 +9,6 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
-=begin
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
@@ -41,7 +40,6 @@ end
 
 git_branch = 'master'
 job_name = node["rackbox"]["jenkins"]["job"]
-=end
 
 #job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
 #
