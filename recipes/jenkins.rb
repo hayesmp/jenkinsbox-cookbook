@@ -9,9 +9,9 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
-#host = ["rackbox"]['jenkins']['server']['host']
-#puts host
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
+host = node["rackbox"]['jenkins']['host']
+puts host
 
 `hostname 0.0.0.0`
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
