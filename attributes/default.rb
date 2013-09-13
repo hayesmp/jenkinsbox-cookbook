@@ -26,6 +26,7 @@ default["rackbox"]["default_config"]["passenger_runit"]["spawn_method"] = "smart
 default["rackbox"]["default_config"]["passenger_runit"]["host"] = "localhost"
 
 default["rackbox"]["default_config"]['jenkins']['server']['install_method'] = "package"
+default["rackbox"]["default_config"]['jenkins']['server']['url'] = "http://0.0.0.0:8080"
 
 default["rackbox"]["apps"]["unicorn"] = []
 default["rackbox"]["apps"]["passenger"] = []
