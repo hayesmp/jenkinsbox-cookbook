@@ -58,4 +58,4 @@ job_name = node["rackbox"]["jenkins"]["job"]
 #  notifies :build, resources(:jenkins_job => job_name), :immediately
 #end
 
-`hostname #{host}`
+#`hostname #{host}`
