@@ -17,7 +17,7 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 `mv default.json /var/lib/jenkins/updates/`
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
 
-#jenkins_cli "-s http://0.0.0.0:8080 safe-restart"
+jenkins_cli "-s http://0.0.0.0:8080 safe-restart"
 `java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
 
 %w{ git github }.each do |plugin|
