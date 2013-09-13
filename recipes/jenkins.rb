@@ -9,8 +9,11 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
+host = ["rackbox"]['jenkins']['server']['host']
+puts host
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 
+`hostname 0.0.0.0`
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
 `sed '1d;$d' default.js > default.json`
 `mkdir /var/lib/jenkins/updates`
@@ -54,3 +57,5 @@ job_name = node["rackbox"]["jenkins"]["job"]
 #  notifies :update, resources(:jenkins_job => job_name), :immediately
 #  notifies :build, resources(:jenkins_job => job_name), :immediately
 #end
+
+`hostname #{host}`
