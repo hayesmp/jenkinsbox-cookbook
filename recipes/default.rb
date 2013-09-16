@@ -9,7 +9,8 @@ include_recipe "appbox"
 
 include_recipe "java"
 include_recipe "jenkins"
-include_recipe "jenkins_setup"
+
 
 include_recipe "rackbox::jenkins"
+include_recipe "rackbox::jenkins_setup"
 include_recipe "rackbox::ruby"
