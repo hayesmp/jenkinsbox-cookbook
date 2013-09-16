@@ -9,6 +9,7 @@ include_recipe "java"
 include_recipe "jenkins"
 #include_recipe "jenkins::jenkins_cli"
 
+=begin
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
 host = node["rackbox"]['jenkins']['host']
 puts host
@@ -61,3 +62,4 @@ job_name = node["rackbox"]["jenkins"]["job"]
 #end
 
 #`hostname #{host}`
+=end

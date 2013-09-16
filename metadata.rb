@@ -17,3 +17,4 @@ depends 'jenkins'
 recipe "rackbox", "run all recipes."
 recipe "rackbox::ruby", "setup a ruby version manager `rbenv`."
 recipe "rackbox::jenkins", "setup jenkins with a new job"
+recipe "rackbox::jenkins_setup", "setup jenkins with a new job"
