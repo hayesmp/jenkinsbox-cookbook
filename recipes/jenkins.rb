@@ -13,7 +13,7 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 host = node["rackbox"]['jenkins']['host']
 puts host
 
-`hostname 0.0.0.0`
+#`hostname 0.0.0.0`
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
 `sed '1d;$d' default.js > default.json`
 `mkdir /var/lib/jenkins/updates`
@@ -23,11 +23,13 @@ puts host
 jenkins_cli "safe-restart"
 #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
 
-%w{ git github }.each do |plugin|
-  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
-  jenkins_cli "install-plugin #{plugin}"
-  #jenkins_cli "safe-restart"
-end
+#%w{ git github }.each do |plugin|
+#  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
+#  jenkins_cli "install-plugin #{plugin}"
+#  #jenkins_cli "safe-restart"
+#end
+
+jenkins_cli "install-plugin github"
 
 #`service jenkins restart`
 jenkins_cli "safe-restart"
