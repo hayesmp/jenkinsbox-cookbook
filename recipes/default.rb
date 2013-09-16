@@ -2,6 +2,9 @@
 # Cookbook Name:: rackbox
 # Recipe:: default
 #
+
+`hostname 0.0.0.0`
+
 include_recipe "appbox"
 
 include_recipe "java"
