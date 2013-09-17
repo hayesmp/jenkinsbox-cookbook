@@ -12,5 +12,4 @@ include_recipe "jenkins"
 
 
 include_recipe "rackbox::jenkins"
-include_recipe "rackbox::jenkins_setup"
 include_recipe "rackbox::ruby"
