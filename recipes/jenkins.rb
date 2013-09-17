@@ -24,13 +24,13 @@ puts host
 jenkins_cli "safe-restart"
 #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
 
-#%w{ git github }.each do |plugin|
-#  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
-#  jenkins_cli "install-plugin #{plugin}"
-#  #jenkins_cli "safe-restart"
-#end
+%w{ git github }.each do |plugin|
+  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
+  jenkins_cli "install-plugin #{plugin}"
+  #jenkins_cli "safe-restart"
+end
 
-jenkins_cli "install-plugin github"
+#jenkins_cli "install-plugin github"
 
 #`service jenkins restart`
 jenkins_cli "safe-restart"
