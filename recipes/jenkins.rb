@@ -69,4 +69,4 @@ template job_config do
 end
 =end
 
-`hostname #{host}`
+#`hostname #{host}`
