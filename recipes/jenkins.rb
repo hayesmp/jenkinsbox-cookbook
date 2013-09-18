@@ -23,6 +23,7 @@ puts host
 jenkins_cli "safe-restart"
 
 jenkins_cli "install-plugin github"
+jenkins_cli "install-plugin rbenv"
 
 #jenkins_cli "safe-restart"
 
