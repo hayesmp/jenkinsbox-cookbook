@@ -37,7 +37,7 @@ job_name = node["rackbox"]["jenkins"]["job"]
 job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
 
 jenkins_job job_name do
-  action :create
+  action :nothing
   config job_config
 end
 
