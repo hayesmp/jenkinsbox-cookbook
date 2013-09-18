@@ -31,7 +31,25 @@ jenkins_cli "install-plugin github"
 #node["rackbox"]["jenkins"]["job"]
 #node["rackbox"]["jenkins"]["ip_address"]
 
+git_branch = 'master'
+job_name = node["rackbox"]["jenkins"]["job"]
 
+job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
+
+jenkins_job job_name do
+  action :nothing
+  config job_config
+end
+
+template job_config do
+  source "jenkins_job-config.xml.erb"
+  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
+  notifies :update, resources(:jenkins_job => job_name), :immediately
+  notifies :build, resources(:jenkins_job => job_name), :immediately
+end
+
+
+=begin
 git_branch = 'master'
 job_name = node["rackbox"]["jenkins"]["job"]
 
@@ -49,5 +67,6 @@ template job_config do
   notifies :update, resources(:jenkins_job => job_name), :immediately
   notifies :build, resources(:jenkins_job => job_name), :immediately
 end
+=end
 
 `hostname #{host}`
