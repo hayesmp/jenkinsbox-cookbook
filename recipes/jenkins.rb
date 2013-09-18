@@ -7,7 +7,6 @@
 #include_recipe "apt"
 include_recipe "java"
 include_recipe "jenkins"
-#include_recipe "jenkins::jenkins_cli"
 
 
 ip_address = node["rackbox"]["jenkins"]["ip_address"]
@@ -22,21 +21,10 @@ puts host
 `chown -R jenkins:nogroup /var/lib/jenkins/updates`
 
 jenkins_cli "safe-restart"
-#`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
-
-#%w{ git github }.each do |plugin|
-#  #`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 install-plugin #{plugin}`
-#  jenkins_cli "install-plugin #{plugin}"
-#  #jenkins_cli "safe-restart"
-#end
 
 jenkins_cli "install-plugin github"
 
-#`service jenkins restart`
-jenkins_cli "safe-restart"
-#`java -jar /home/jenkins/jenkins-cli.jar -s http://0.0.0.0:8080 safe-restart`
-
-
+#jenkins_cli "safe-restart"
 
 #node["rackbox"]["jenkins"]["git_repo"]
 #node["rackbox"]["jenkins"]["command"]
@@ -47,18 +35,18 @@ jenkins_cli "safe-restart"
 git_branch = 'master'
 job_name = node["rackbox"]["jenkins"]["job"]
 
-#job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
-#
-#jenkins_job job_name do
-#  action :nothing
-#  config job_config
-#end
-#
-#template job_config do
-#  source "#{job_name}-config.xml"
-#  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
-#  notifies :update, resources(:jenkins_job => job_name), :immediately
-#  notifies :build, resources(:jenkins_job => job_name), :immediately
-#end
+job_config = File.open("#{job_name}-config.xml", "w")
 
-#`hostname #{host}`
+jenkins_job job_name do
+  action :nothing
+  config job_config
+end
+
+template job_config do
+  source "#{job_name}-config.xml"
+  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
+  notifies :update, resources(:jenkins_job => job_name), :immediately
+  notifies :build, resources(:jenkins_job => job_name), :immediately
+end
+
+`hostname #{host}`
