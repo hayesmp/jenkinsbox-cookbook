@@ -35,7 +35,8 @@ jenkins_cli "install-plugin github"
 git_branch = 'master'
 job_name = node["rackbox"]["jenkins"]["job"]
 
-job_config = File.open("#{job_name}-config.xml", "w")
+#job_config = File.open("jenkins_job-config.xml", "w")
+job_config = "jenkins_job-config.xml"
 
 jenkins_job job_name do
   action :nothing
