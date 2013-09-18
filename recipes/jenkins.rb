@@ -43,9 +43,9 @@ end
 
 template job_config do
   source "jenkins_job-config.xml.erb"
-  variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
-  notifies :update, resources(:jenkins_job => job_name), :immediately
-  notifies :build, resources(:jenkins_job => job_name), :immediately
+  #variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
+  #notifies :update, resources(:jenkins_job => job_name), :immediately
+  #notifies :build, resources(:jenkins_job => job_name), :immediately
 end
 
 
