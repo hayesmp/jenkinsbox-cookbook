@@ -5,6 +5,8 @@
 
 `hostname 0.0.0.0`
 
+package "mysql"
+
 include_recipe "appbox"
 
 include_recipe "java"

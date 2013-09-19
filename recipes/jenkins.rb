@@ -23,7 +23,8 @@ puts host
 jenkins_cli "safe-restart"
 
 jenkins_cli "install-plugin github"
-jenkins_cli "install-plugin rbenv"
+#jenkins_cli "install-plugin rbenv"
+#jenkins_cli "install-plugin envinject"
 
 #jenkins_cli "safe-restart"
 
@@ -37,18 +38,22 @@ job_name = node["rackbox"]["jenkins"]["job"]
 
 job_config = File.join(node[:jenkins][:node][:home], "#{job_name}-config.xml")
 
-jenkins_job job_name do
-  action :create
-  config job_config
-end
+#jenkins_job job_name do
+#  action :create
+#  config job_config
+#end
+#
+#template job_config do
+#  source "jenkins_job-config.xml.erb"
+#  #variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
+#  #notifies :update, resources(:jenkins_job => job_name), :immediately
+#  #notifies :build, resources(:jenkins_job => job_name), :immediately
+#end
 
-template job_config do
-  source "jenkins_job-config.xml.erb"
-  #variables :job_name => job_name, :branch => git_branch, :node => node[:fqdn]
-  #notifies :update, resources(:jenkins_job => job_name), :immediately
-  #notifies :build, resources(:jenkins_job => job_name), :immediately
-end
+`mkdir /var/lib/jenkins/jobs/#{job_name}`
+``
 
+jenkins_cli "create-job #{job_name} < "
 
 =begin
 git_branch = 'master'
