@@ -1,4 +1,4 @@
-name             "rackbox"
+name             "jenkinsbox"
 maintainer       "Huiming Teo"
 maintainer_email "teohuiming@gmail.com"
 license          "Apache License 2.0"
