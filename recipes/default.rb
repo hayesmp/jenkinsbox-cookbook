@@ -5,7 +5,7 @@
 
 `hostname 0.0.0.0`
 
-package "mysql"
+#package "mysql"
 
 include_recipe "appbox"
 

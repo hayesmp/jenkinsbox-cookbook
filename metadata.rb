@@ -13,7 +13,7 @@ depends 'appbox'
 depends 'rbenv'
 depends 'java'
 depends 'jenkins'
-depends 'mysql'
+#depends 'mysql'
 
 recipe "rackbox", "run all recipes."
 recipe "rackbox::ruby", "setup a ruby version manager `rbenv`."
