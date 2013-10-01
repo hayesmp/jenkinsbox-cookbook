@@ -26,7 +26,7 @@ puts host
 jenkins_cli "safe-restart"
 
 jenkins_cli "install-plugin github"
-#jenkins_cli "install-plugin rbenv" don't need
+jenkins_cli "install-plugin rbenv" #don't need
 #jenkins_cli "install-plugin envinject" don't need
 
 # If we were going to make this work we would need to:
