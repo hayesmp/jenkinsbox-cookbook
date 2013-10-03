@@ -13,8 +13,8 @@ ip_address = node["rackbox"]["jenkins"]["ip_address"]
 host = node["rackbox"]['jenkins']['host']
 puts host
 
-`git config --global user.name "Your Name Here"`
-`git config --global user.email "your_email@example.com"`
+#`git config --global user.name "Your Name Here"`
+#`git config --global user.email "your_email@example.com"`
 
 #`hostname 0.0.0.0`
 `wget -O default.js http://updates.jenkins-ci.org/update-center.json`
@@ -26,7 +26,7 @@ puts host
 jenkins_cli "safe-restart"
 
 jenkins_cli "install-plugin github"
-jenkins_cli "install-plugin rbenv" #don't need
+#jenkins_cli "install-plugin rbenv" #don't need
 #jenkins_cli "install-plugin envinject" don't need
 
 # If we were going to make this work we would need to:
